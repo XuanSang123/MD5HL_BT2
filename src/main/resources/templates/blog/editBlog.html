@@ -1,0 +1,25 @@
+<!-- resources/templates/blog/editBlog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa Blog</title>
+</head>
+<body>
+<h2>Sửa Blog</h2>
+<form action="/blog/edit" method="POST">
+    <input type="hidden" name="id" value="${blog.id}">
+
+    <label for="title">Tiêu Đề</label>
+    <input type="text" id="title" name="title" value="${blog.title}" required><br><br>
+
+    <label for="content">Nội Dung</label><br>
+    <textarea id="content" name="content" rows="5" cols="40" required>${blog.content}</textarea><br><br>
+
+    <button type="submit">Cập nhật</button>
+</form>
+<br>
+<a href="/blog">Quay lại danh sách</a>
+</body>
+</html>

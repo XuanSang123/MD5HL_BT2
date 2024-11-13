@@ -1,0 +1,23 @@
+<!-- resources/templates/blog/addBlog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Blog</title>
+</head>
+<body>
+<h2>Thêm Blog Mới</h2>
+<form action="/blog/add" method="POST">
+    <label for="title">Tiêu Đề</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="content">Nội Dung</label><br>
+    <textarea id="content" name="content" rows="5" cols="40" required></textarea><br><br>
+
+    <button type="submit">Thêm</button>
+</form>
+<br>
+<a href="/blog">Quay lại danh sách</a>
+</body>
+</html>

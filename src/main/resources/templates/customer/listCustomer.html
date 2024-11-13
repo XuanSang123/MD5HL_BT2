@@ -1,0 +1,35 @@
+<!-- src/main/resources/templates/customer/listCustomer.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+</head>
+<body>
+<h1>Customer List</h1>
+<a href="/customer/add">Add New Customer</a>
+<table>
+    <thead>
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Project</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${Customers}">
+        <td th:text="${customer.fullName}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.phone}"></td>
+        <td th:text="${customer.project.name}"></td> <!-- Assuming project has a name attribute -->
+        <td>
+            <a th:href="@{/customer/edit/{id}(id=${customer.id})}">Edit</a> |
+            <a th:href="@{/customer/delete/{id}(id=${customer.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

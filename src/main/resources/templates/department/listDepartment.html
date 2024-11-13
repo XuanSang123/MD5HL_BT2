@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/listdepartment.css">
+</head>
+<body>
+
+<h1 class="page-title">Danh sách sản phẩm</h1>
+<a href="/department/add" class="add-button">Thêm mới khách hàng</a>
+<!--<form class="search-form" th:action="@{/products}" method="get">-->
+<!--    <input type="text" class="search-input" name="keyword" th:value="*{keyword}" placeholder="Tìm kiếm sản phẩm"/>-->
+<!--    <button class="search-btn" type="submit">Tìm kiếm</button>-->
+<!--</form>-->
+<table class="product-table">
+    <tr class="table-header">
+        <th>STT</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr th:each="de,loop: ${departments}" class="table-row">
+        <td th:text="${loop.count}" class="table-data">1</td>
+        <td th:text="${de.deparmentName}" class="table-data">Hung</td>
+        <td th:text="${de.status}" class="table-data">1000</td>
+        <td class="table-action">
+            <a th:href="@{/department/edit/{id}(id=${de.deparmentId})}" class="action-button edit-button">Edit</a>
+        </td>
+        <td class="table-action">
+            <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')"
+               th:href="@{/department/delete/{id}(id=${de.deparmentId})}" class="action-button delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

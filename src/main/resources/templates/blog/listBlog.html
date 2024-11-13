@@ -1,0 +1,51 @@
+<!-- resources/templates/blog/listBlog.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Blog</title>
+</head>
+<body>
+<h2>Danh Sách Blog</h2>
+
+<a href="/blog/add">Thêm Blog Mới</a>
+<br><br>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tiêu Đề</th>
+        <th>Nội Dung</th>
+        <th>Thao Tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.content}"></td>
+        <td>
+            <a th:href="@{/blog/edit/{id}(id=${blog.id})}">Sửa</a> |
+            <a th:href="@{/blog/delete/{id}(id=${blog.id})}">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Phân trang -->
+<div>
+    <!-- Trang trước -->
+    <span th:if="${blogs.hasPrevious()}">
+         <a th:href="@{/blog?page=${blogs.number - 1}}">Trang trước</a>
+     </span>
+
+    <!-- Hiển thị thông tin trang hiện tại và tổng số trang -->
+    <span>Trang <span th:text="${blogs.number + 1}"></span> / <span th:text="${blogs.totalPages}"></span></span>
+
+    <!-- Trang sau -->
+    <span th:if="${blogs.hasNext()}">
+         <a th:href="@{/blog?page=${blogs.number + 1}}">Trang sau</a>
+     </span>
+</div>
+</body>
+</html>

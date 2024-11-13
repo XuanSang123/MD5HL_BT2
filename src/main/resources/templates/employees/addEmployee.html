@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/addemployee.css">
+</head>
+<body>
+<h1>Thêm mới nhân viên</h1>
+<form th:action="@{/employee/add}" th:object="${employee}" method="post">
+
+    <!-- Tên nhân viên -->
+    <label for="name">Tên nhân viên:</label>
+    <input type="text" th:field="*{name}" id="name" required><br><br>
+
+    <!-- Địa chỉ -->
+    <label for="address">Địa chỉ:</label>
+    <input type="text" th:field="*{address}" id="address" required><br><br>
+
+    <!-- Số điện thoại -->
+    <label for="phone">Số điện thoại:</label>
+    <input type="text" th:field="*{phone}" id="phone" required><br><br>
+
+    <!-- Trạng thái -->
+    <label for="status">Trạng thái:</label>
+    <select th:field="*{status}" id="status">
+        <option value="true">Hoạt động</option>
+        <option value="false">Không hoạt động</option>
+    </select><br><br>
+
+    <!-- Phòng ban -->
+    <label for="department">Phòng ban:</label>
+    <select th:field="*{department.deparmentId}" id="department">
+        <option th:each="de : ${departments}"
+                th:value="${de.deparmentId}"
+                th:text="${de.deparmentName}">
+        </option>
+    </select><br><br>
+
+    <!-- Nút thêm -->
+    <button type="submit">Thêm nhân viên</button>
+</form>
+</body>
+</html>

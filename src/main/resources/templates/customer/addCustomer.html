@@ -1,0 +1,40 @@
+<!-- src/main/resources/templates/customer/addCustomer.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+</head>
+<body>
+<h1>Add New Customer</h1>
+<form th:action="@{/customer/add}" th:object="${customer}" method="post">
+    <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" th:field="*{}" id="fullName" required/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" id="email" required/>
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" th:field="*{phone}" id="phone" required/>
+    </div>
+    <div>
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" th:field="*{DOB}" id="DOB" required/>
+    </div>
+    <div>
+        <label for="projectId">Project:</label>
+        <select th:field="*{project.id}" id="projectId" >
+            <option th:each="project : ${projects}"
+                    th:value="${project.id}"
+                    th:text="${project.name}"></option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>

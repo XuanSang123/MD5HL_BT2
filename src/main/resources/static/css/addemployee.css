@@ -1,0 +1,72 @@
+/* Đặt định dạng chung cho form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Định dạng tiêu đề */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Định dạng các nhãn */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Định dạng cho các trường nhập liệu */
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Định dạng cho nút submit */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Đặt các phần tử form vào giữa và căn chỉnh */
+form input, form select, form button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+}
+
+/* Tạo khoảng cách và định dạng cho các nút radio hoặc checkbox */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Định dạng chung cho body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
